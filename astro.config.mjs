@@ -5,6 +5,8 @@ import { defineConfig } from 'astro/config';
 // Modo 'static' para generación estática de todas las páginas
 export default defineConfig({
   output: 'static',
-  site: 'https://satelite30.github.io/',
-  base: '/blog-pop-dos-astro-dev/'
+  site: 'https://blog.popular-esmedellin.com'
+  
 });
+
+
