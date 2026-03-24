@@ -1,11 +1,97 @@
 ---
 import '../styles/main.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
 
 const { currentPage = '' } = Astro.props;
 ---
 
+<style>
+  /* Hero Section */
+.navbar {
+  z-index: 1000;
+  position: relative;
+  overflow: hidden;
+  margin-top: -20px;
+  background: #004200;
+}
 
+/* Estilos para alinear el logo con los elementos de navegación */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  max-height: 90px;
+  object-fit: contain;
+  justify-content: start;
+}
+
+.navbar-nav {
+  align-items: center;
+  height: 100%;
+  
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Selectores más específicos para sobrescribir Bootstrap */
+.navbar .navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
+  color: #ffffff !important;
+  font-size: 24px !important;
+  transition: color 0.5s ease-in-out;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #85bb85 !important;
+}
+
+.navbar .navbar-nav > li {
+  font-size: 24px;
+}
+
+.nav-item:hover {
+  text-decoration: 3px underline #33cc66;
+}
+
+/* Toggler blanco y hover */
+.navbar-toggler {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: ease-in-out 0.2s;
+}
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  height: 4rem;
+  width: 4rem;
+}
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  border: 3px solid #fff !important;
+  border-radius: 8px;
+  transition: ease-in-out 0.2s;
+}
+.navbar-toggler:hover .navbar-toggler-icon,
+.navbar-toggler:focus .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Cambiar el color del subrayado cuando el navbar está cubierto */
+.navbar.filled .nav-item:hover {
+  text-decoration: 3px underline white;
+}
+
+
+</style>
 
 <header>
   <nav class="navbar d-flex navbar-expand-lg navbar-light shadow-sm" >
