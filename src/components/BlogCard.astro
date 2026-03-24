@@ -14,13 +14,12 @@ interface Props {
 
 import '../styles/main.css';
 const { title, subtitle, date, author, readTime, tags, category, excerpt, image, slug } = Astro.props;
-const base = Astro.base;
 ---
 
 <div class="col-lg-12 col-md-12 col-sm-12 mx-auto mb-3 card-info  ">
 
 
-  <a href={`${base}post/${slug}`} class="text-decoration-none">
+  <a href={`/post/${slug}`} class="text-decoration-none">
 
 
   <div

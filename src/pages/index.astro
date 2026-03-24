@@ -6,8 +6,12 @@ import BlogCard from '../components/BlogCard.astro';
 import { getAllPosts, formatExcerpt, getSlug } from '../utils/posts';
 
 const publicaciones = await getAllPosts();
-const base = Astro.base || '/post/';
-const postUrl = (slug) => `${base}post/${slug}`;
+
+// Helper function para generar URLs seguras
+const postUrl = (slug: string): string => {
+  if (!slug) return '/';
+  return `/post/${slug}`;
+};
 const categories = [
   'Investigación',
   'Participación Comunitaria',
@@ -280,7 +284,6 @@ const recentPosts = publicaciones.slice(0, 3);
   });
 
   // Generar HTML para el historial usando Bootstrap accordion
-  const publicBase = Astro.base || '/';
   const historialEl = document.getElementById('historial');
   if (historialEl) {
     const sortedKeys = Object.keys(history).sort().reverse();
@@ -293,7 +296,7 @@ const recentPosts = publicaciones.slice(0, 3);
           const headingId = `heading${index}`;
           const postsHtml = posts.map(post => {
             return `<li style="padding: 4px 0; border-bottom: 1px solid #eee;">
-              <a href="${publicBase}post/${post.slug}" style="color: #004200; text-decoration: none; font-size: 14px;">
+              <a href="/post/${post.slug}" style="color: #004200; text-decoration: none; font-size: 14px;">
                 ${post.publish} - ${post.title}
               </a>
             </li>`;

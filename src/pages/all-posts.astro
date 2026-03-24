@@ -5,8 +5,12 @@ import Footer from '../components/Footer.astro';
 import { getAllPosts, getSlug } from '../utils/posts';
 
 const posts = await getAllPosts();
-const base = Astro.base || '/post/';
-const postUrl = (slug) => `${base}post/${slug}`;
+
+// Helper function para generar URLs seguras
+const postUrl = (slug: string): string => {
+  if (!slug) return '/';
+  return `/post/${slug}`;
+};
 const categories = [
   'Investigación',
   'Participación Comunitaria',
@@ -69,7 +73,7 @@ const recentPosts = posts.slice(0, 3);
 
               <div class="mt-3">
                 {post.data.tags.map((tag) => (
-                <a href={base} style="text-decoration: none;">  <span class="badge bg-success me-1">{tag}</span> </a>
+                <a href="/" style="text-decoration: none;">  <span class="badge bg-success me-1">{tag}</span> </a>
                 ))}
               </div>
             </article>
