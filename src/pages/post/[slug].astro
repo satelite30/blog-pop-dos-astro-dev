@@ -18,15 +18,20 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { data } = post;
-const base = Astro.base || '/post/'; // Asegura que base tenga un valor predeterminado
 const siteUrl = Astro.site || 'https://blog.popular-esmedellin.com';
 const currentSlug = getSlug(post);
 const nextPost = await getNextPost(currentSlug);
-const nextSlug = getSlug(nextPost);
+const nextSlug = getSlug(nextPost) || '';
 const prevPost = await getPrevPost(currentSlug);
-const prevSlug = getSlug(prevPost);
+const prevSlug = getSlug(prevPost) || '';
 const recommendedPosts = await getRecommendedPosts(currentSlug);
 const postUrl = `${siteUrl}/post/${currentSlug}`;
+
+// Helper function para generar URLs de posts sin undefined
+const getPostUrl = (slug: string): string => {
+  if (!slug) return '/';
+  return `/post/${slug}`;
+};
 ---
 
 <BaseLayout
@@ -50,20 +55,20 @@ const postUrl = `${siteUrl}/post/${currentSlug}`;
     <div class="container">
       <div class="row w-100">
         <div class="col-2 d-flex align-items-center justify-content-center">
-          <a href={`${base}post/${prevSlug}`} class="text-decoration-none">
+          <a href={getPostUrl(prevSlug)} class="text-decoration-none">
             <i
               class="fas fa-chevron-left text-white nav-chevron"
               style="font-size: 2rem; cursor: pointer"></i>
           </a>
         </div>
         <div class="col-8 text-center text-white">
-          <a href={base} style="text-decoration: none; color: white">
+          <a href="/" style="text-decoration: none; color: white">
             <h2 class="fw-bold mb-2">{data.title}</h2>
           </a>
           <p class="mb-0">{data.subtitle}</p>
         </div>
         <div class="col-2 d-flex align-items-center justify-content-center">
-          <a href={`${base}post/${nextSlug}`} class="text-decoration-none">
+          <a href={getPostUrl(nextSlug)} class="text-decoration-none">
             <i
               class="fas fa-chevron-right text-white nav-chevron"
               style="font-size: 2rem; cursor: pointer"></i>
@@ -389,7 +394,7 @@ const postUrl = `${siteUrl}/post/${currentSlug}`;
             <div class="d-flex flex-wrap col-10  gap-2 ">
               {
                 data.tags.map((tag) => (
-                  <a href={base} style="text-decoration: none;">
+                  <a href="/" style="text-decoration: none;">
                  <span class="badge bg-success d-flex flex-wrap ">{tag}</span></a>
                 ))
               }
@@ -403,7 +408,7 @@ const postUrl = `${siteUrl}/post/${currentSlug}`;
                 recommendedPosts.map((recPost) => (
                   <li class="mb-2">
                     <a
-                      href={`${base}post/${getSlug(recPost)}`}
+                      href={getPostUrl(getSlug(recPost))}
                       class="text-dark text-decoration-none"
                     >
                       {recPost.data.title}
