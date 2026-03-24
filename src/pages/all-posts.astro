@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import { getAllPosts, getSlug } from '../utils/posts';
 
 const posts = await getAllPosts();
-const base = Astro.base;
+const base = Astro.base || '/post/';
 const postUrl = (slug) => `${base}post/${slug}`;
 const categories = [
   'Investigación',

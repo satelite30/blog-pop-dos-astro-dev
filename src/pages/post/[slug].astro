@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { data } = post;
-const base = Astro.base;
+const base = Astro.base || '/post/'; // Asegura que base tenga un valor predeterminado
 const siteUrl = Astro.site || 'https://blog.popular-esmedellin.com';
 const currentSlug = getSlug(post);
 const nextPost = await getNextPost(currentSlug);
