@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { data } = post;
-const base = Astro.base || '/';
+const base = Astro.base || '/blog-pop-dos-astro-dev/';
 const siteUrl = Astro.site || 'https://satelite30.github.io/blog-pop-dos-astro-dev';
 const currentSlug = getSlug(post);
 const nextPost = await getNextPost(currentSlug);

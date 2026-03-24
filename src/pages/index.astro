@@ -6,7 +6,7 @@ import BlogCard from '../components/BlogCard.astro';
 import { getAllPosts, formatExcerpt, getSlug } from '../utils/posts';
 
 const publicaciones = await getAllPosts();
-const base = Astro.base || '/';
+const base = Astro.base || '/blog-pop-dos-astro-dev/';
 const postUrl = (slug) => `${base}post/${slug}`;
 const categories = [
   'Investigación',
