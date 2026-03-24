@@ -2,7 +2,8 @@
 title: 'Mi Nuevo Post'
 subtitle: 'Descripción corta'
 image: 'https://raw.githubusercontent.com/satelite30/logo-test/refs/heads/main/corazon2.png'
-date: '24 de Marzo de 2026'
+
+date: '02 de Febrero de 2026'
 publish: '02-02-2026'
 author: 'Autor'
 category: 'Categoría'

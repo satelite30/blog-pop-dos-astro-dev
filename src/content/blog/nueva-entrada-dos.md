@@ -2,6 +2,8 @@
 title: 'Mi Nuevo Post'
 subtitle: 'Descripción corta'
 image: 'https://raw.githubusercontent.com/satelite30/-logossitio/refs/heads/main/imagenesprom/DSC_9321-4.jpg'
+images:
+  - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/imagenesBase/Lanzamiento%20LibroUniversidad%20FederaldeRiodeJaneiro%202026-01-28.jpeg'
 date: '24 de Marzo de 2026'
 publish: '24-03-2026'
 author: 'Autor'
