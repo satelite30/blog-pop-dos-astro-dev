@@ -7,10 +7,13 @@ import { getAllPosts, getSlug } from '../utils/posts';
 const posts = await getAllPosts();
 
 // Helper function para generar URLs seguras
-const postUrl = (slug: string): string => {
+/* const postUrl = (slug: string): string => {
   if (!slug) return '/';
   return `/post/${slug}`;
-};
+}; */
+const base = Astro.site || '';
+const postUrl = (slug) => `${base}/post/${slug}`;
+
 const categories = [
   'Investigación',
   'Participación Comunitaria',
