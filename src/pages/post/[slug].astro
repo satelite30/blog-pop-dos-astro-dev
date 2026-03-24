@@ -1,0 +1,490 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getAllPosts, getNextPost, getPrevPost, getRecommendedPosts, getSlug } from "../../utils/posts";
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((post) => {
+    // El slug puede ser post.id o post.slug dependiendo de la versión de Astro
+    const slug = post.id?.replace(/\.md$/, '') || post.slug;
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const currentSlug = getSlug(post);
+const nextPost = await getNextPost(currentSlug);
+const nextSlug = getSlug(nextPost);
+const prevPost = await getPrevPost(currentSlug);
+const prevSlug = getSlug(prevPost);
+const recommendedPosts = await getRecommendedPosts(currentSlug);
+---
+
+<BaseLayout
+  title={`${data.title} - Huellas de Barrio`}
+  description={data.introductionTitle}
+/>
+<Header currentPage="post" />
+
+<main>
+  <!-- Banner -->
+  <div
+    class="container-fluid"
+    style="
+        background: linear-gradient(135deg, #004200 0%, #006600 100%);
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+  >
+    <div class="container">
+      <div class="row w-100">
+        <div class="col-2 d-flex align-items-center justify-content-center">
+          <a href={`/post/${prevSlug}`} class="text-decoration-none">
+            <i
+              class="fas fa-chevron-left text-white nav-chevron"
+              style="font-size: 2rem; cursor: pointer"></i>
+          </a>
+        </div>
+        <div class="col-8 text-center text-white">
+          <a href="/" style="text-decoration: none; color: white">
+            <h2 class="fw-bold mb-2">{data.title}</h2>
+          </a>
+          <p class="mb-0">{data.subtitle}</p>
+        </div>
+        <div class="col-2 d-flex align-items-center justify-content-center">
+          <a href={`/post/${nextSlug}`} class="text-decoration-none">
+            <i
+              class="fas fa-chevron-right text-white nav-chevron"
+              style="font-size: 2rem; cursor: pointer"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-dark-subtle">
+    <!-- Post -->
+    <div class="container py-5">
+      <div class="col-lg-12">
+        {
+          data.images && data.images.length > 0 ? (
+            data.images.map((imgSrc, index) => (
+              <img
+                src={imgSrc}
+                alt={`Imagen ${index + 1} del post`}
+                class="w-100 mb-4"
+                key={index}
+                style="height: 350px;top:100px ; object-fit: cover;"
+              />
+            ))
+          ) : (
+            <img
+              src={data.image}
+              alt="Imagen del post"
+              class="w-100 mb-4"
+              style="height: 150px; object-fit: cover;"
+            />
+          )
+        }
+      </div>
+
+      <div class="row gy-4">
+        <!-- Columna izquierda: contenido -->
+        <div class="col-lg-8">
+          <article class="bg-white p-4 rounded shadow-sm">
+            <p class="text-muted mb-4">
+              <small
+                >Publicado el <strong>{data.date}</strong> ·
+                <strong>Autor:</strong>
+                {data.author}</small
+              >
+            </p>
+
+            <h3 class="text-success mb-3">{data.introductionTitle}</h3>
+            {
+              data.introductionContent.map((paragraph, index) => (
+                <p key={index} class="fs-5" style="color: #333; text-align: justify;" >
+                  {paragraph}
+                </p>
+              ))
+            }
+
+            {data.contextTitle && (
+              <h4 class="text-success mt-4">{data.contextTitle}</h4>
+            )}
+            {
+              data.contextContent.map((paragraph, index) => (
+                <p key={index} style="color: #555; text-align: justify;">
+                  {paragraph}
+                </p>
+              ))
+            }
+
+            <!--  --------------contenido multimedia  -->
+            {
+              data.videoYoutube && data.videoYoutube.length > 0 && (
+                <div class="mt-5">
+                  <h5 class="text-success mb-3">Videos</h5>
+                  <div class="row g-3">
+                    {data.videoYoutube.map((videoUrl, index) => (
+                      <div class="col-md-6 mb-3" key={index}>
+                        <iframe
+                          width="100%"
+                          height="315"
+                          src={videoUrl
+                            .replace("youtu.be/", "youtube.com/embed/")
+                            .replace("watch?v=", "embed/")}
+                          title={`Video ${index + 1}`}
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                          style="border-radius: 8px;"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+
+            {
+              data.videoLocal && data.videoLocal.length > 0 && (
+                <div class="mt-5">
+                  <h5 class="text-success mb-3">Conoce</h5>
+                  <div class="row g-3">
+                    {data.videoLocal.map((videoPath, index) => (
+                      <div class="col-md-6 mb-3" key={index}>
+                        <video
+                          width="100%"
+                          height="315"
+                          controls
+                          style="border-radius: 2px; background-color: #000;"
+                        >
+                          <source src={videoPath} type="video/mp4" />
+                          Tu navegador no soporta el elemento video.
+                        </video>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+
+            {
+              data.imagenContenido && data.imagenContenido.length > 0 && (
+                <div class="mt-5">
+                  <h5 class="text-success mb-3"></h5>
+                  <div class="row g-3">
+                    {data.imagenContenido.map((imagenUrl, index) => (
+                      <div class="col-md-6 mb-3" key={index}>
+                        <img
+                          src={imagenUrl}
+                          alt={`Imagen de contenido ${index + 1}`}
+                          style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+
+            {
+              data.audioContenido && data.audioContenido.length > 0 && (
+                <div class="mt-5">
+                  <h5 class="text-success mb-3">Contenido de Audio</h5>
+                  <div class="row g-3">
+                    {data.audioContenido.map((audioPath, index) => (
+                      <div class="col-md-12 mb-3" key={index}>
+                        <audio
+                          controls
+                          style="width: 100%; display: block; margin-bottom: 15px;"
+                        >
+                          <source src={audioPath} type="audio/mpeg" />
+                          Tu navegador no soporta el elemento audio.
+                        </audio>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+
+<!---------------------------------- segunda parte de texto -->
+           {
+              data.textoSecundario.map((paragraph, index) => (
+                <p key={index} class="fs-6" style="color: #333; text-align: justify;" >
+                  {paragraph}
+                </p>
+              ))
+            }
+
+            <!--    link externos y recomendados -->
+            {data.linkDocumento && data.linkDocumento.length > 0 && data.nombreBoton && data.nombreBoton.length > 0 && (
+              <div class="col-12 container mt-4">
+                {data.linkDocumento.map((url, index) => (
+                  <a
+                    key={index}
+                    href={url}
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline-success mt-1 w-100"
+                  >
+                    {data.nombreBoton[index] || `Documento ${index + 1}`}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <!-- -----------------------------------social networks iframes  -->
+
+            {
+              (data.socialLinkFace.length > 0 ||
+                data.socialLinkInsta.length > 0 ||
+                data.socialLinkX.length > 0) && (
+                <div class="mt-5">
+                  <h5 class="text-success mb-3">Redes Sociales</h5>
+                  <div class="row g-3">
+                    {data.socialLinkFace.map((url, index) => (
+                      <div class="col-md-6 mb-3" key={`face-${index}`}>
+                        <div
+                          class="fb-post"
+                          data-href={url}
+                          data-width="500"
+                          data-show-text="true"
+                        />
+                      </div>
+                    ))}
+                    {data.socialLinkInsta.map((url, index) => (
+                      <div class="col-md-6 mb-3" key={`insta-${index}`}>
+                        <blockquote
+                          class="instagram-media "
+                          data-instgrm-permalink={url}
+                          data-instgrm-version="14"
+                          style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
+                        >
+                          <div style="padding:16px;">
+                            <a
+                              href={url}
+                              style="background:#FFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                              target="_blank"
+                            >
+                              <div style="display: flex; flex-direction: row; align-items: center;">
+                                <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;" />
+                                <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                  <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;" />
+                                  <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;" />
+                                </div>
+                              </div>
+                            </a>
+                            <div style="padding: 19% 0;" />
+                            <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                              <svg
+                                width="80px"
+                                height="80px"
+                                viewBox="0 0 60 60"
+                                version="1.1"
+                                xmlns="https://www.w3.org/2000/svg"
+                                xmlns:xlink="https://www.w3.org/1999/xlink"
+                              >
+                                <g
+                                  stroke="none"
+                                  stroke-width="1"
+                                  fill="none"
+                                  fill-rule="evenodd"
+                                >
+                                  <g
+                                    transform="translate(-511.000000, -20.000000)"
+                                    fill="#000000"
+                                  >
+                                    <g>
+                                      <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60 C535.114,60 530.342,55.228 530.342,49.342 L530.342,9.656 C530.342,3.77 535.114,0 541,0 L556.456,0 C562.342,0 567.114,4.772 567.114,10.658 L567.114,50.342 C567.114,56.23 562.342,60 556.456,60 L541,60 Z M541,1.802 C536.596,1.802 532.143,5.007 532.143,9.656 L532.143,50.342 C532.143,54.991 536.596,58.198 541,58.198 L556.456,58.198 C560.86,58.198 565.313,54.991 565.313,50.342 L565.313,9.656 C565.313,5.007 560.86,1.802 556.456,1.802 L541,1.802 Z M541,38.348 C535.114,38.348 530.342,33.576 530.342,27.69 C530.342,21.804 535.114,17.032 541,17.032 C546.886,17.032 551.658,21.804 551.658,27.69 C551.658,33.576 546.886,38.348 541,38.348 Z M541,19.138 C537.701,19.138 535.038,21.801 535.038,25.1 C535.038,28.399 537.701,31.062 541,31.062 C544.299,31.062 546.962,28.399 546.962,25.1 C546.962,21.801 544.299,19.138 541,19.138 Z" />
+                                    </g>
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <div style="padding-top: 8px;">
+                              <div style="color:#505050; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                Ver esta publicación en Instagram
+                              </div>
+                            </div>
+                            <div style="padding: 12.5% 0;" />
+                            <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                              <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5%; width: 12.5%;" />
+                              <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5%; width: 12.5%; margin-left: 14px;" />
+                              <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5%; width: 12.5%; margin-left: 14px;" />
+                            </div>
+                          </div>
+                        </blockquote>
+                      </div>
+                    ))}
+                    {data.socialLinkX.map((url, index) => (
+                      <div class="col-md-6 mb-3" key={`x-${index}`}>
+                        <blockquote class="twitter-tweet" data-lang="es">
+                          <a href={url} />
+                        </blockquote>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+
+            <!-- post BLOCKQUOTE Y CONCLUSION -->
+            {
+              data.quote && data.quote.trim() !== "" && (
+                <blockquote class="blockquote ps-3 border-start border-3 border-success">
+                  <p class="mb-0">"{data.quote}"</p>
+                  <footer
+                    class="blockquote-footer mt-2"
+                    style="background-color: #004e2a8a;color:white;"
+                  >
+                    {data.quoteAuthor}
+                  </footer>
+                </blockquote>
+              )
+            }
+
+            {
+              data.conclusionContent && data.conclusionContent.length > 0 && (
+                <>
+                  <h4 class="text-success mt-4">{data.conclusionTitle}</h4>
+                  {data.conclusionContent.map((paragraph, index) => (
+                    <p key={index} style="color: #555">
+                      {paragraph}
+                    </p>
+                  ))}
+                </>
+              )
+            }
+          </article>
+        </div>
+
+        <!------------------- Columna derecha: meta info -->
+        <aside class="col-lg-4">
+          <div class="bg-white p-4 rounded shadow-sm mb-4">
+            <h5 class="text-success mb-3">Detalles</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><strong>Fecha:</strong> {data.date}</li>
+              <li class="mb-2"><strong>Autor:</strong> {data.author}</li>
+              <li class="mb-2"><strong>Categoría:</strong> {data.category}.</li>
+              <li><strong>Lectura:</strong> {data.readTime}</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-4 rounded shadow-sm mb-4 ">
+            <h5 class="text-success mb-3">Etiquetas</h5>
+            <div class="d-flex flex-wrap col-10  gap-2 ">
+              {
+                data.tags.map((tag) => (
+                  <a href="/" style="text-decoration: none;">
+                 <span class="badge bg-success d-flex flex-wrap ">{tag}</span></a>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded shadow-sm">
+            <h5 class="text-success mb-3">Lista de entradas</h5>
+            <ul class="list-unstyled mb-0">
+              {
+                recommendedPosts.map((recPost) => (
+                  <li class="mb-2">
+                    <a
+                      href={`/post/${getSlug(recPost)}`}
+                      class="text-dark text-decoration-none"
+                    >
+                      {recPost.data.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="col-lg-12 my-4 comments">
+        <div class="bg-white p-4 rounded shadow-sm">
+          <h5 class="text-success mb-3">Comentarios</h5>
+          <div
+            class="fb-comments"
+            data-href={`https://popular-esmedellin.com/post/${currentSlug}`}
+            data-width="100%"
+            data-numposts="5"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<Footer />
+
+<style>
+  .nav-chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .nav-chevron:hover {
+    transform: scale(1.3);
+  }
+</style>
+
+<script>
+  // Facebook SDK initialization
+  if (typeof window !== "undefined") {
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src =
+        "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0&autoLogAppEvents=1";
+      fjs.parentNode?.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+
+    // Instagram embed script
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://www.instagram.com/embed.js";
+      fjs.parentNode?.insertBefore(js, fjs);
+    })(document, "script", "instagram-embed");
+
+    // Twitter widgets script
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode?.insertBefore(js, fjs);
+    })(document, "script", "twitter-wjs");
+
+    // Process embeds after scripts load
+    setTimeout(function () {
+      if (window.instgrm && window.instgrm.Embeds) {
+        window.instgrm.Embeds.process();
+      }
+      if (window.FB && window.FB.XFBML) {
+        window.FB.XFBML.parse();
+      }
+    }, 2000);
+  }
+</script>
