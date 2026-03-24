@@ -51,6 +51,9 @@ const fullUrl = url || `${siteUrl}${Astro.url.pathname}`;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
 
+    <!-- Facebook -->
+  <meta property="fb:app_id" content="TU_APP_ID_AQUI" />
+
     <!-- Canonical URL -->
     <link rel="canonical" href={fullUrl} />
     
@@ -71,6 +74,8 @@ const fullUrl = url || `${siteUrl}${Astro.url.pathname}`;
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/styles/main.css" />
