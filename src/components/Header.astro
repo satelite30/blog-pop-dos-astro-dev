@@ -1,5 +1,6 @@
 ---
 import '../styles/main.css';
+import '../styles/header.css';
 
 const { currentPage = '' } = Astro.props;
 ---
@@ -24,7 +25,7 @@ const { currentPage = '' } = Astro.props;
         </a>
       </div>
 
-      <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="col-lg-4 col-md-12 col-sm-12 ">
         <button
           class="navbar-toggler d-lg-none mx-auto mt-2 mb-4"
           type="button"
@@ -35,29 +36,33 @@ const { currentPage = '' } = Astro.props;
           aria-label="Toggle navigation"
           style="display: flex; justify-content: center; align-items: center"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon "></span>
         </button>
         <div
-          class="collapse navbar-collapse d-lg-flex justify-content-center py-2"
+          class="collapse navbar-collapse d-lg-flex justify-content-center py-2 "
           id="navbarNavDropdown"
         >
-          <ul class="navbar-nav ms-auto d-flex justify-content-center w-100">
-            <li class="nav-item m-auto m-2">
-              <a class="nav-link" href="https://popular-esmedellin.com" style="color: rgb(255, 255, 255) !important; font-size: 24px !important; display: flex; align-items: center;">Inicio</a>
+
+        <div class="mt-5 col-lg-10 "> 
+          <ul class="navbar-nav ms-auto d-flex justify-content-center w-100 ">
+            <li class="nav-item m-auto mb-4">
+              <a class="nav-link" href="https://popular-esmedellin.com" style="color: rgb(255, 255, 255) !important; font-size: 22px !important; display: flex; align-items: center;">Inicio</a>
             </li>
-            <li class="nav-item m-auto m-2">
-              <a class="nav-link" href="https://popular-esmedellin.com/pages/red.html" style="color: rgb(255, 255, 255) !important; font-size: 24px !important; display: flex; align-items: center;">Red</a>
+            <li class="nav-item m-auto mb-4">
+              <a class="nav-link" href="https://popular-esmedellin.com/pages/red.html" style="color: rgb(255, 255, 255) !important; font-size: 22px !important; display: flex; align-items: center;">Red</a>
             </li>
-            <li class="nav-item m-auto">
-              <a class="nav-link" href="/" style="color: rgb(255, 255, 255) !important; font-size: 24px !important; display: flex; align-items: center;">Actualidades</a>
+            <li class="nav-item m-auto mb-4">
+              <a class="nav-link" href="/" style="color: rgb(255, 255, 255) !important; font-size: 22px !important; display: flex; align-items: center;">Actualidades</a>
             </li>
-            <li class="nav-item m-auto">
-              <a class="nav-link" href="https://popular-esmedellin.com/pages/publicaciones.html" style="color: rgb(255, 255, 255) !important; font-size: 24px !important; display: flex; align-items: center;">Publicaciones</a>
+            <li class="nav-item m-auto mb-4">
+              <a class="nav-link" href="https://popular-esmedellin.com/pages/publicaciones.html" style="color: rgb(255, 255, 255) !important; font-size: 22px !important; display: flex; align-items: center;">Publicaciones</a>
             </li>
-            <li class="nav-item m-auto">
-              <a class="nav-link" href="https://popular-esmedellin.com/pages/contacto.html" style="color: rgb(255, 255, 255) !important; font-size: 24px !important; display: flex; align-items: center;">Contacto</a>
+            <li class="nav-item m-auto mb-4">
+              <a class="nav-link" href="https://popular-esmedellin.com/pages/contacto.html" style="color: rgb(255, 255, 255) !important; font-size: 22px !important; display: flex; align-items: center;">Contacto</a>
             </li>
           </ul>
+          </div>
+
         </div>
       </div>
     </div>
