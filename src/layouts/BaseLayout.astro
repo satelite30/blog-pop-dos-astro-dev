@@ -1,46 +1,72 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/main.css';
+
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  url?: string;
 }
 
-const { title, description = "Huellas de Barrio - Publicaciones MASO" } = Astro.props;
-const base = Astro.base || '/blog-pop-dos-astro-dev/';
+const { 
+  title, 
+  description = "Huellas de Barrio - Publicaciones MASO",
+  image = "https://popular-esmedellin.com/recursos/img/logo4.png",
+  url = Astro.url.href
+} = Astro.props;
+
+// Construir URL completa del sitio
+const siteUrl = Astro.site?.href || 'https://blog.popular-esmedellin.com';
+const fullUrl = url || `${siteUrl}${Astro.url.pathname}`;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
-
-     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#004200" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
 
     <title>{title}</title>
-    <meta name="description" content={description} />
 
-    <!-- Open Graph -->
-    <!-- <meta property="og:title" content={title} />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    <meta property="og:url" content={url} />
-    <meta property="og:type" content="article" /> -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Huellas de Barrio" />
 
     <!-- Twitter -->
-    <!-- <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={fullUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
 
+    <!-- Facebook -->
+  <meta property="fb:app_id" content="TU_APP_ID_AQUI" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullUrl} />
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="/recursos/img/logoLitt2.ico" type="image/x-icon" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <title>{title}</title> -->
 
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -48,12 +74,25 @@ const base = Astro.base || '/blog-pop-dos-astro-dev/';
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href={`${base}styles/main.css`} />
+
+
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
-    <slot />
+    
 
+    <main>
+      <slot />
+    </main>
+
+    
+
+    <!-- Bootstrap Bundle JS -->
     <script is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script is:inline src={`${base}scripts/navbar-animation.js`}></script>
+    
+    <!-- Navbar Animation Script -->
+    <script is:inline src="/scripts/navbar-animation.js"></script>
   </body>
 </html>
