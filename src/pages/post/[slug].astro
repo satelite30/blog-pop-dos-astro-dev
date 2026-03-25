@@ -37,6 +37,7 @@ const getPostUrl = (slug: string): string => {
 <BaseLayout
   title={`${data.title} - Huellas de Barrio`}
   description={data.introductionTitle}
+  image={data.images?.[0] || data.image}
 />
 <Header currentPage="post" />
 
