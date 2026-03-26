@@ -16,7 +16,7 @@ tags:
   - 'Patrimonio popular'
   - 'Turistificación'
   - 'Mercantilización urbana'
-introductionTitle: 'Introducción'
+introductionTitle: 'Presentación'
 introductionContent:
   - 'Este libro examina críticamente las transformaciones urbanas recientes en barrios populares de Medellín (Colombia) y favelas de Río de Janeiro (Brasil), analizando los impactos entrecruzados de políticas públicas, prácticas turísticas y participación social en estos territorios. A través de un enfoque sur-sur, la obra revela cómo discursos institucionales que promueven el derecho a la ciudad conviven con procesos de mercantilización, turistificación y desigualdad socioespacial.'
 contextTitle: ''

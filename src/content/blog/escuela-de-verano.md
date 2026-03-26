@@ -4,11 +4,11 @@ subtitle: 'Escuela de Verano'
 image: 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/imagenesBase/Grupo%20completo%20en%20paraninfo%202025-08-24.jpg  '
 images:
   - 'https://raw.githubusercontent.com/satelite30/-logossitio/refs/heads/main/imagenesprom/juntanzas2.jpg'
-date: '20 de Febrero de 2026'
-publish: '02-02-2026'
+date: '1 de Marzo de 2026'
+publish: '01-03-2026'
 author: 'Grupo de investigacion MASO - UdeA'
 category: 'Ejemplo, Tutorial'
-readTime: '3 min'
+readTime: '8 min'
 tags:
   - 'Escuela de Verano'
   - 'popularES'
@@ -26,7 +26,7 @@ contextContent:
 videoYoutube: []
 videoLocal: []
 imagenContenido:
-  - 'https://raw.githubusercontent.com/satelite30/-logossitio/refs/heads/main/imagenesprom/juntanzas2.jpg'
+  - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/imagenesBase/Grupo%20completo%20en%20paraninfo%202025-08-24.jpg '
   - 'https://popular-esmedellin.com/recursos/img/juntanzas2.jpeg'
 audioContenido: []
 textoSecundario:
