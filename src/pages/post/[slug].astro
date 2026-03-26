@@ -236,22 +236,7 @@ const getPostUrl = (slug: string): string => {
               ))
             }
 
-            <!--    link externos y recomendados -->
-            {data.linkDocumento && data.linkDocumento.length > 0 && data.nombreBoton && data.nombreBoton.length > 0 && (
-              <div class="col-12 container mt-4">
-                {data.linkDocumento.map((url, index) => (
-                  <a
-                    key={index}
-                    href={url}
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-outline-success mt-1 w-100"
-                  >
-                    {data.nombreBoton[index] || `Documento ${index + 1}`}
-                  </a>
-                ))}
-              </div>
-            )}
+           
 
             <!-- -----------------------------------social networks iframes  -->
 
@@ -375,6 +360,23 @@ const getPostUrl = (slug: string): string => {
                 </>
               )
             }
+
+             <!--    link externos y recomendados -->
+            {data.linkDocumento && data.linkDocumento.length > 0 && data.nombreBoton && data.nombreBoton.length > 0 && (
+              <div class="col-12 container mt-4">
+                {data.linkDocumento.map((url, index) => (
+                  <a
+                    key={index}
+                    href={url}
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline-success mt-1 w-100"
+                  >
+                    {data.nombreBoton[index] || `Documento ${index + 1}`}
+                  </a>
+                ))}
+              </div>
+            )}
           </article>
         </div>
 
