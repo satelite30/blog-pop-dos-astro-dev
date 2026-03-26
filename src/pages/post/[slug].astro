@@ -30,7 +30,7 @@ const postUrl = `${siteUrl}/post/${currentSlug}`;
 // Helper function para generar URLs de posts sin undefined
 const getPostUrl = (slug: string): string => {
   if (!slug) return '/';
-  return `/post/${slug}`;
+  return `/post/${slug}/`;
 };
 ---
 

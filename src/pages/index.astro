@@ -10,7 +10,7 @@ const publicaciones = await getAllPosts();
 // Helper function para generar URLs seguras
 const postUrl = (slug: string): string => {
   if (!slug) return "/";
-  return `/post/${slug}`;
+  return `/post/${slug}/`;
 };
 const categories = [
   "Investigación",
