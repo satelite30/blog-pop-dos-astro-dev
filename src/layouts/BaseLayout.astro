@@ -30,7 +30,7 @@ const fullUrl = url || `${siteUrl}${Astro.url.pathname}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Facebook -->
-    <meta name="google-site-verification" content="1628473155145966" />
+    <!-- <meta name="google-site-verification" content="1628473155145966" /> -->
 
     <meta name="description" content={description} />
     <meta name="theme-color" content="#004200" />
@@ -49,6 +49,8 @@ const fullUrl = url || `${siteUrl}${Astro.url.pathname}`;
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content="Huellas de Barrio" />
+<!-- Facebook -->
+    <meta property="fb:app_id" content="1628473155145966" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -58,7 +60,7 @@ const fullUrl = url || `${siteUrl}${Astro.url.pathname}`;
     <meta property="twitter:image" content={image} />
     <meta property="twitter:image:alt" content={title} />
 
-    <!-- Facebook -->
+    
   <!-- <meta property="fb:app_id" content="" /> -->
 
     <!-- Canonical URL -->
