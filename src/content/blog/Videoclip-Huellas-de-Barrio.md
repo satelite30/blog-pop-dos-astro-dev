@@ -7,7 +7,7 @@ images:
 
 date: '22 de Febrero de 2026'
 publish: '22-02-2026'
-author: 'Autor'
+author: 'Grupo Maso UdeA - Huellas de Barrio'
 category: 'Categoría'
 readTime: '5 min'
 tags:
