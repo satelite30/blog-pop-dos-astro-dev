@@ -47,50 +47,52 @@ image="https://raw.githubusercontent.com/satelite30/-logossitio/main/imagenespro
         <!-- Columna 8: Posts -->
         <div class="col-lg-8 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2">
           {posts.map((post) => (
-            <article class="mb-5 p-4 border rounded shadow-sm">
-              <h2 class="text-success">{post.data.title}</h2>
-              <p class="text-muted">{post.data.date} · {post.data.author} · {post.data.category} · {post.data.readTime}</p>
-              <p>{post.data.subtitle}</p>
+            <a href={postUrl(getSlug(post))} style="text-decoration: none; color: inherit; display: block;">
+              <article class="mb-5 p-4 border rounded shadow-sm">
+                <h2 class="text-success">{post.data.title}</h2>
+                <p class="text-muted">{post.data.date} · {post.data.author} · {post.data.category} · {post.data.readTime}</p>
+                <p>{post.data.subtitle}</p>
 
-              <div class="row gy-3 mb-4">
-                {post.data.images && post.data.images.length > 0 ? (
-                  post.data.images.map((img, idx) => (
-                    <div class="col-md-12">
-                      <img src={img} alt={`Imagen ${idx + 1} de ${post.data.title}`} class="w-100" style="height: 250px; object-fit: cover; border-radius: 0.5rem;" />
+                <div class="row gy-3 mb-4">
+                  {post.data.images && post.data.images.length > 0 ? (
+                    post.data.images.map((img, idx) => (
+                      <div class="col-md-12">
+                        <img src={img} alt={`Imagen ${idx + 1} de ${post.data.title}`} class="w-100" style="height: 250px; object-fit: cover; border-radius: 0.5rem;" />
+                      </div>
+                    ))
+                  ) : (
+                    <div class="col-12">
+                      <img src={post.data.image} alt={`Imagen de ${post.data.title}`} class="w-100" style="height: 150px; object-fit: cover; border-radius: 0.5rem;" />
                     </div>
-                  ))
-                ) : (
-                  <div class="col-12">
-                    <img src={post.data.image} alt={`Imagen de ${post.data.title}`} class="w-100" style="height: 150px; object-fit: cover; border-radius: 0.5rem;" />
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
 
-              <section class="mb-3">
-                {post.data.contextTitle && <h3>{post.data.contextTitle}</h3>}
-                {post.data.introductionContent.map((paragraph, idx) => (
-                  <p key={idx} style="text-align: justify;">{paragraph}</p>
-                ))}
-              </section>
+                <section class="mb-3">
+                  {post.data.contextTitle && <h3>{post.data.contextTitle}</h3>}
+                  {post.data.introductionContent.map((paragraph, idx) => (
+                    <p key={idx} style="text-align: justify;">{paragraph}</p>
+                  ))}
+                </section>
 
-              <section class="mb-3">
-                {post.data.contextContent.map((paragraph, idx) => (
-                  <p key={idx} style="text-align: justify;">{paragraph}</p>
-                ))}
-              </section>
+                <section class="mb-3">
+                  {post.data.contextContent.map((paragraph, idx) => (
+                    <p key={idx} style="text-align: justify;">{paragraph}</p>
+                  ))}
+                </section>
 
-              <section class="mb-3">
-                {post.data.textoSecundario.map((paragraph, idx) => (
-                  <p key={idx} style="text-align: justify;">{paragraph}</p>
-                ))}
-              </section>
+                <section class="mb-3">
+                  {post.data.textoSecundario.map((paragraph, idx) => (
+                    <p key={idx} style="text-align: justify;">{paragraph}</p>
+                  ))}
+                </section>
 
-              <div class="mt-3">
-                {post.data.tags.map((tag) => (
-                <a href="/" style="text-decoration: none;">  <span class="badge bg-success me-1">{tag}</span> </a>
-                ))}
-              </div>
-            </article>
+                <div class="mt-3">
+                  {post.data.tags.map((tag) => (
+                  <a href="/" style="text-decoration: none;">  <span class="badge bg-success me-1">{tag}</span> </a>
+                  ))}
+                </div>
+              </article>
+            </a>
           ))}
         </div>
 
