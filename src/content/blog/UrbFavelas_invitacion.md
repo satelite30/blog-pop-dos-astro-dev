@@ -4,8 +4,8 @@ subtitle: 'A Comissão Organizadora do V Seminário Internacional de Urbanizaç�
 image: 'https://static.wixstatic.com/media/5f73e3_e4e02294ff6a4ddc8d8ba89f218bbe8f~mv2.png/v1/crop/x_179,y_117,w_2915,h_1889/fill/w_674,h_437,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5f73e3_e4e02294ff6a4ddc8d8ba89f218bbe8f~mv2.png'
 images:
   - 'https://static.wixstatic.com/media/5f73e3_e4e02294ff6a4ddc8d8ba89f218bbe8f~mv2.png/v1/crop/x_179,y_117,w_2915,h_1889/fill/w_674,h_437,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5f73e3_e4e02294ff6a4ddc8d8ba89f218bbe8f~mv2.png'
-date: '2 de Marzo de 2026'
-publish: '14-04-2026'
+date: '20 de Marzo de 2026'
+publish: '20-04-2026'
 author: 'Grupo MASO'
 category: ''
 readTime: '4 min'
