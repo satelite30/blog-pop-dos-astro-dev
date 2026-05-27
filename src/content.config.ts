@@ -8,6 +8,9 @@ const blogCollection = defineCollection({
     subtitle: z.string(),
     image: z.string(),
     images: z.array(z.string()).optional().default([]),
+       // New optional controls for image rendering
+    imageFit: z.enum(['cover', 'contain']).optional().default('cover'),
+    imageWidth: z.string().optional().default('100%'),
     date: z.string(),
     publish: z.string(), // Formato DD-MM-YYYY
     author: z.string(),
@@ -21,6 +24,9 @@ const blogCollection = defineCollection({
     videoYoutube: z.array(z.string()).optional().default([]),
     videoLocal: z.array(z.string()).optional().default([]),
     imagenContenido: z.array(z.string()).optional().default([]),
+    // Controls for content images
+    imagenContenidoFit: z.enum(['cover', 'contain']).optional().default('cover'),
+    imagenContenidoWidth: z.string().optional().default('100%'),
     audioContenido: z.array(z.string()).optional().default([]),
     textoSecundario: z.array(z.string()).optional().default([]),
     socialLinkFace: z.array(z.string()).optional().default([]),

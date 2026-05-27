@@ -91,7 +91,7 @@ const getPostUrl = (slug: string): string => {
                 alt={`Imagen ${index + 1} del post`}
                 class="w-100 mb-4"
                 key={index}
-                style="height: 350px;top:100px ; object-fit: cover;"
+                                style={`height: 350px; top:100px; object-fit: ${data.imageFit}; width: ${data.imageWidth};`}
               />
             ))
           ) : (
@@ -99,7 +99,7 @@ const getPostUrl = (slug: string): string => {
               src={data.image}
               alt="Imagen del post"
               class="w-100 mb-4"
-              style="height: 150px; object-fit: cover;"
+              style={`height: 150px; object-fit: ${data.imageFit}; width: ${data.imageWidth};`}
             />
           )
         }
@@ -147,7 +147,7 @@ const getPostUrl = (slug: string): string => {
                         <img
                           src={imagenUrl}
                           alt={`Imagen de contenido ${index + 1}`}
-                          style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;"
+                          style={`width: ${data.imagenContenidoWidth || '100%'}; height: 300px; object-fit: ${data.imagenContenidoFit}; border-radius: 8px;`}
                         />
                       </div>
                     ))}
