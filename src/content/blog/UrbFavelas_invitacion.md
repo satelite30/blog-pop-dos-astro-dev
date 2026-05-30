@@ -37,7 +37,7 @@ imagenContenidoFit: contain
 
 textoSecundario:
   - 'La Comisión Organizadora del V Seminario Internacional de Urbanización de Favelas - UrbFavelas Natal tiene el placer de invitar a la quinta edición de nuestro evento, que se realizará en noviembre de 2026, en la Universidad Federal de Rio Grande do Norte - UFRN.'
-  - 'El evento presenta como tema general Frestas, Retomas e Incertidumbres, pasando por un debate sobre el contexto reciente de la política urbana y habitacional con foco en la urbanización de favelas; transita entre tres ejes temáticos: Favelização en Pequeñas y Medianas Ciudades; Dimensión ambiental de la favela - cambio climático, riesgos y salud colectiva; y Planes, Proyectos y Obras en Favelas. Busca, también, resaltar las particularidades regionales de la favelización y de la urbanización de favelas en el Nordeste.'
+  - 'El evento presenta como tema general "Frestas, Retomas e Incertidumbres", pasando por un debate sobre el contexto reciente de la política urbana y habitacional con foco en la urbanización de favelas; transita entre tres ejes temáticos: Favelização en Pequeñas y Medianas Ciudades; Dimensión ambiental de la favela - cambio climático, riesgos y salud colectiva; y Planes, Proyectos y Obras en Favelas. Busca, también, resaltar las particularidades regionales de la favelización y de la urbanización de favelas en el Nordeste.'
 audioContenido: []
 socialLinkFace: []
 socialLinkInsta: ['https://www.instagram.com/reel/DW9FkkCEd_N/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==' ,'https://www.instagram.com/p/DTu3yrXjXWB/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==']
