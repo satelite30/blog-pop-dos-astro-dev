@@ -40,6 +40,26 @@ const getPostUrl = (slug: string): string => {
   image={data.images?.[0] || data.image}
 />
 <Header currentPage="post" />
+<style>
+  .nav-chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .nav-chevron:hover {
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 400px) {
+    .instagram-media {
+      width: 50% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 auto !important;
+      display: block !important;
+      border: 3px solid blues;
+    }
+  }
+</style>
 
 <main>
   <!-- Banner -->
@@ -248,9 +268,9 @@ const getPostUrl = (slug: string): string => {
                 data.socialLinkX.length > 0) && (
                 <div class="mt-5">
                   <h5 class="text-success mb-3">Redes Sociales</h5>
-                  <div class="row g-3">
+                  <div class="row  g-3 ">
                     {data.socialLinkFace.map((url, index) => (
-                      <div class="col-md-6 mb-3" key={`face-${index}`}>
+                      <div class="col-md-6 col-sm-8 mb-3 " key={`face-${index}`}>
                         <div
                           class="fb-post"
                           data-href={url}
@@ -260,7 +280,7 @@ const getPostUrl = (slug: string): string => {
                       </div>
                     ))}
                     {data.socialLinkInsta.map((url, index) => (
-                      <div class="col-md-6 mb-3" key={`insta-${index}`}>
+                      <div class="col-md-6 col-sm-8  mb-3" key={`insta-${index}`}>
                         <blockquote
                           class="instagram-media "
                           data-instgrm-permalink={url}
@@ -451,15 +471,7 @@ const getPostUrl = (slug: string): string => {
 
 <Footer />
 
-<style>
-  .nav-chevron {
-    transition: transform 0.3s ease;
-  }
 
-  .nav-chevron:hover {
-    transform: scale(1.3);
-  }
-</style>
 
 <script>
   // Facebook SDK initialization

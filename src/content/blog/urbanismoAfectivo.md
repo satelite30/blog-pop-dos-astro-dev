@@ -1,5 +1,5 @@
 ---
-title: 'RE-CREO:Urbanismo afectivo con infancias por el derecho a la ciudad'
+title: 'RE-CREO: Urbanismo afectivo con infancias por el derecho a la ciudad'
 subtitle: 'Diplomado - Extensión Solidaria'
 image: 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/portadas/Recreo1.jpg'
 imagenFit: contain
@@ -17,9 +17,9 @@ tags:
   - 'Urbanismo afectivo'
   - 'infancias'
   - 'derecho a la ciudad'
-introductionTitle: ''
+introductionTitle: 'RE-CREO'
 introductionContent:
-  - 'Re-Creo es una propuesta de formación teórico-práctica en urbanismo participativo y afectivo con enfoque de infancias. El diplomado propone superar las visiones adultocéntricas en laplanificación urbana para diseñar entornos seguros,autónomos y lúdicos mediante el aprendizaje situado y el codiseño con los niños y niñas'
+  - 'Es una propuesta de formación teórico-práctica en urbanismo participativo y afectivo con enfoque de infancias. El diplomado propone superar las visiones adultocéntricas en laplanificación urbana para diseñar entornos seguros,autónomos y lúdicos mediante el aprendizaje situado y el codiseño con los niños y niñas'
   - 'Se trata de un Diplomado dirigido a estudiantes de grado y posgrado con interés en la temática (abierto a todas las facultades y universidades de Medellín). Así mismo a líderes y lideresas comunitarias, directores de instituciones educativas, líderes de organizaciones barriales, personal bibliotecario del Sistema de Bibliotecas Públicas de Medellín y público en general.'
   - 'Orienta la formación teórico-práctica en urbanismo participativo y afectivo con enfoque de infancias. Propone diseñar planes barriales con definición de entornos seguros y autónomos para niñas y niños mediante aprendizajes situados, intervenciones y codiseños territoriales. El Diploma busca superar visiones adultocéntricas en la planificación urbana y generar incidencia pública. Su alcance incluye el diseño de lineamientos y estrategias en planes barriales, así como la creación de un manual metodológico para replicar procesos que garanticen el derecho de las infancias a habitar y co-construir la ciudad.'
   
