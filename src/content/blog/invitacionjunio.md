@@ -33,5 +33,5 @@ imagenContenido:
   - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio1-2026-06-10.jpeg'
   
 imagenContenidoFit: contain
-
+socialLinkInsta: [https://www.instagram.com/p/DZYXv_MGaq3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==]
 ---
