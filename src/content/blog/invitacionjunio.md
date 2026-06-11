@@ -2,15 +2,16 @@
 title: 'Conversatorio'
 subtitle: '¿Medellín una ciudad para las infancias?'
 image: 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio2-2026-06-10.jpeg'
-imagenFit: contain
+imagenFit: cover
 imagenWidth: '100%' 
 images:
-  - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio2-2026-06-10.jpeg'
-  - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio1-2026-06-10.jpeg'
+  - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio3-2026-06-10.jpg'
   
 date: '11 de junio 2026'
 publish: '11-06-2026'
-
+author: 'Grupo MASO'
+category: 'Conversatorio'
+readTime: ''
 tags:
   - 'Conversatorio'
   - 'Infancias'
@@ -26,4 +27,11 @@ introductionContent:
   - 'Contaremos con la participación de representantes de la academia, organizaciones sociales e instituciones que trabajan por una ciudad más incluyente para las infancias.'
   - '🎥 Si no puedes acompañarnos presencialmente, sigue la transmisión en vivo a través de Youtube en @cienciassocialesyhumanasudea.'
   - '¡Te esperamos para pensar y construir juntos una Medellín más amable, segura y participativa para las infancias! #CiudadParaLasInfancias #UdeA #CienciasSocialesyHumanas #Icetex'
+
+imagenContenido:
+  -  'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio2-2026-06-10.jpeg'
+  - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio1-2026-06-10.jpeg'
+  
+imagenContenidoFit: contain
+
 ---
