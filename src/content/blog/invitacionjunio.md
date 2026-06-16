@@ -27,6 +27,7 @@ introductionContent:
   - 'Contaremos con la participación de representantes de la academia, organizaciones sociales e instituciones que trabajan por una ciudad más incluyente para las infancias.'
   - '🎥 Si no puedes acompañarnos presencialmente, sigue la transmisión en vivo a través de Youtube en @cienciassocialesyhumanasudea.'
   - '¡Te esperamos para pensar y construir juntos una Medellín más amable, segura y participativa para las infancias! #CiudadParaLasInfancias #UdeA #CienciasSocialesyHumanas #Icetex'
+videoYoutube: [https://youtu.be/Yf5GIhY3kk4]
 
 imagenContenido:
   -  'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/invitacionjunio2-2026-06-10.jpeg'
