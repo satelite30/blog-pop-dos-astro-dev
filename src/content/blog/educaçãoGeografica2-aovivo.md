@@ -2,7 +2,7 @@
 title: 'En vivo: Encuentro Nacional de Prácticas de Enseñanza de Geografía'
 subtitle: 'Video en vivo: Educación Geográfica en sus múltiples territorialidades '
 image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuTVOxM_DLX6pv2FNTS8UA_WmlAko5zSKAymzYRoCdG5bz3p8Yc33FH2KE2ySDsC5ux8RNaRGpcyIVkEfNFhxBIkSKMWKyVziwRqiVBUxOSF-sRry95XmkKV1OxlXASDFrKeEoTlFCc3j2xWG4EsOMRCo3T5jSiac7u9_sCL6NcO1ubHy3f2VNjTVrgAtd/w1200-h630-p-k-no-nu/xviienpeg.png'
-imagenFit: contain
+imagenFit: cover
 imagenWidth: '100%' 
 images:
   - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/VIurbanBras10j.jpg'
