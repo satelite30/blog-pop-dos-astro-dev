@@ -30,7 +30,9 @@ contextContent:
   - ''
  
  
-videoYoutube: [https://www.youtube.com/live/w29IEyklEAg]
+videoYoutube:
+  - 'https://youtu.be/w29IEyklEAg'
+  - 'https://youtu.be/sLgZJSokSZI'
 videoLocal: []
 imagenContenido: 
   - 'https://raw.githubusercontent.com/satelite30/blog-Popular-es/refs/heads/main/INVITACIONES/VIurbanBras10j.jpg'
@@ -45,10 +47,8 @@ audioContenido: []
 socialLinkFace: []
 socialLinkInsta: [https://www.instagram.com/p/DYf5ma1RTWI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==]
 socialLinkX: []
-linkDocumento:
-  - 'https://www.youtube.com/live/sLgZJSokSZI'
-nombreBoton:
-  - 'Ver más'
+linkDocumento: []
+nombreBoton: []
 quote: 'O XVII ENPEG, sediado na Universidade Estadual Vale do Acaraú (UVA) e na Coded/CED, constitui-se como um dos mais relevantes eventos brasileiros dedicados ao debate e à divulgação científica de pesquisas voltadas ao Ensino de Geografia e à Formação de Professores. Acompanhe o último dia do evento.'
   
 quoteAuthor: 'XVII-ENPEG'
