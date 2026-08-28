@@ -55,5 +55,5 @@ quote: ''
   
 quoteAuthor: ''
 conclusionTitle: ''
-conclusionContent: ['']
+conclusionContent: ''
 ---
