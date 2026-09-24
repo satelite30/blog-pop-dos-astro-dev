@@ -17,7 +17,6 @@ tags:
   - 'Derechos'
   - 'Resistencias'
   - 'Universidad'
-  - 'Antioquia'
 introductionTitle: 'Video conferencia: Tra-Sos'
 introductionContent:
   - 'La video-conferencia Tra-Sos reúne reflexiones sobre territorios, derechos y resistencias en contextos de disputa y construcción colectiva.'
